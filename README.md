@@ -77,12 +77,15 @@ Antivirus Pro deploys a zero-trust, high-performance architecture operating acro
 
 ---
 
-## 🎥 LIVE INTERCEPT DEMO
+## 📸 INTERFACE SHOWCASE
 
-Watch the multi-threaded Rust heuristic scanner detect, isolate, and quarantine malicious threats instantly.
+Explore the pitch-black, cyberpunk-themed Next.js 15 command center designed for maximum threat visibility.
 
 <div align="center">
-  <video src="screenshots/demo.mp4" controls="controls" muted="muted" loop="loop" width="100%" style="border-radius: 10px; border: 1px solid #00ff41; box-shadow: 0 0 15px rgba(0,255,65,0.1);"></video>
+  <img src="screenshots/dashboard_v2.png" alt="Dashboard" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px; box-shadow: 0 0 10px rgba(0,255,65,0.1);">
+  <img src="screenshots/scan.png" alt="Scan Engine" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px; box-shadow: 0 0 10px rgba(0,255,65,0.1);">
+  <img src="screenshots/threats.png" alt="Threats & Quarantine" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px; box-shadow: 0 0 10px rgba(0,255,65,0.1);">
+  <img src="screenshots/settings.png" alt="System Settings" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px; box-shadow: 0 0 10px rgba(0,255,65,0.1);">
 </div>
 
 ---
