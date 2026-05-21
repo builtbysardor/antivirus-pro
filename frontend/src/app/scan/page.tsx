@@ -166,7 +166,7 @@ export default function ScanPage() {
                   className="w-10 h-10 rounded-full animate-radar-spin"
                   style={{
                     background:
-                      'conic-gradient(from 0deg, transparent 0deg, rgba(0,212,255,0.4) 60deg, transparent 61deg)',
+                      'conic-gradient(from 0deg, transparent 0deg, rgba(5,255,133,0.4) 60deg, transparent 61deg)',
                   }}
                 />
               </div>
@@ -188,11 +188,11 @@ export default function ScanPage() {
             <div className="w-full bg-white/5 rounded-full h-2 overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-500"
-                style={{
-                  width: `${progress}%`,
-                  background: 'linear-gradient(90deg, #00d4ff, rgba(0,212,255,0.6))',
-                  boxShadow: '0 0 10px rgba(0,212,255,0.4)',
-                }}
+                  style={{
+                    width: `${progress}%`,
+                    background: 'linear-gradient(90deg, #05ff85, rgba(5,255,133,0.6))',
+                    boxShadow: '0 0 10px rgba(5,255,133,0.4)',
+                  }}
               />
             </div>
             <div className="flex justify-between font-mono text-xs text-gray-600">

@@ -16,7 +16,7 @@ const configs: Record<
   ThreatLevel,
   {
     label: string
-    Icon: React.ComponentType<{ size?: number; className?: string }>
+    Icon: React.ComponentType<any>
     className: string
     iconClass: string
   }

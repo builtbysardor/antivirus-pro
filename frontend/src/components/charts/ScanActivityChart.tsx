@@ -35,13 +35,13 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
       <div
         className="rounded-xl px-3 py-2 font-mono text-xs"
         style={{
-          background: 'rgba(13,13,26,0.95)',
-          border: '1px solid rgba(0,255,136,0.25)',
+          background: 'rgba(9,9,11,0.95)',
+          border: '1px solid rgba(5,255,133,0.25)',
           color: '#e0e0f0',
         }}
       >
         <p className="text-gray-400 mb-0.5">{label}</p>
-        <p style={{ color: '#00ff88' }}>
+        <p style={{ color: '#05ff85' }}>
           {payload[0].value} scan{payload[0].value !== 1 ? 's' : ''}
         </p>
       </div>
@@ -59,7 +59,7 @@ export default function ScanActivityChart({ data }: Props) {
       >
         <CartesianGrid
           strokeDasharray="3 3"
-          stroke="rgba(0,212,255,0.07)"
+          stroke="rgba(5,255,133,0.07)"
           vertical={false}
         />
         <XAxis

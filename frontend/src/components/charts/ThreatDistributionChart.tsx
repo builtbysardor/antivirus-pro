@@ -1,12 +1,5 @@
 "use client"
 
-import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts"
-
-interface SliceData {
-  name: string
-  value: number
-}
-
 interface Props {
   clean: number
   suspicious: number
@@ -14,52 +7,48 @@ interface Props {
 }
 
 const COLORS: Record<string, string> = {
-  Clean: '#00ff88',
+  Clean: '#05ff85',
   Suspicious: '#ffaa00',
   Malicious: '#ff0044',
 }
 
-interface TooltipPayload {
-  name: string
-  value: number
-}
-
-interface CustomTooltipProps {
-  active?: boolean
-  payload?: TooltipPayload[]
-}
-
-function CustomTooltip({ active, payload }: CustomTooltipProps) {
-  if (active && payload && payload.length > 0) {
-    const item = payload[0]
-    return (
-      <div
-        className="rounded-xl px-3 py-2 font-mono text-xs"
-        style={{
-          background: 'rgba(13,13,26,0.95)',
-          border: `1px solid ${COLORS[item.name] ?? '#444'}40`,
-          color: '#e0e0f0',
-        }}
-      >
-        <p style={{ color: COLORS[item.name] ?? '#e0e0f0' }}>
-          {item.name}: {item.value}
-        </p>
-      </div>
-    )
-  }
-  return null
+const GLOWS: Record<string, string> = {
+  Clean: 'shadow-[0_0_12px_rgba(5,255,133,0.45)]',
+  Suspicious: 'shadow-[0_0_12px_rgba(255,170,0,0.45)]',
+  Malicious: 'shadow-[0_0_12px_rgba(255,0,68,0.45)]',
 }
 
 export default function ThreatDistributionChart({ clean, suspicious, malicious }: Props) {
-  const data: SliceData[] = [
-    { name: 'Clean', value: clean },
-    { name: 'Suspicious', value: suspicious },
-    { name: 'Malicious', value: malicious },
-  ].filter((d) => d.value > 0)
+  const total = clean + suspicious + malicious
 
-  const allZero = data.length === 0
+  const items = [
+    {
+      name: 'Clean Files',
+      value: clean,
+      color: COLORS.Clean,
+      glow: GLOWS.Clean,
+      bg: 'rgba(5,255,133,0.02)',
+      border: 'border-[rgba(5,255,133,0.08)] hover:border-[rgba(5,255,133,0.25)]',
+    },
+    {
+      name: 'Suspicious Threats',
+      value: suspicious,
+      color: COLORS.Suspicious,
+      glow: GLOWS.Suspicious,
+      bg: 'rgba(255,170,0,0.02)',
+      border: 'border-[rgba(255,170,0,0.08)] hover:border-[rgba(255,170,0,0.25)]',
+    },
+    {
+      name: 'Malicious Threats',
+      value: malicious,
+      color: COLORS.Malicious,
+      glow: GLOWS.Malicious,
+      bg: 'rgba(255,0,68,0.02)',
+      border: 'border-[rgba(255,0,68,0.08)] hover:border-[rgba(255,0,68,0.25)]',
+    },
+  ]
 
-  if (allZero) {
+  if (total === 0) {
     return (
       <div className="flex items-center justify-center h-[220px]">
         <p className="font-mono text-sm text-gray-600">No scan data yet</p>
@@ -68,41 +57,45 @@ export default function ThreatDistributionChart({ clean, suspicious, malicious }
   }
 
   return (
-    <ResponsiveContainer width="100%" height={220}>
-      <PieChart>
-        <Pie
-          data={data}
-          dataKey="value"
-          nameKey="name"
-          cx="50%"
-          cy="50%"
-          innerRadius={55}
-          outerRadius={85}
-          paddingAngle={3}
-          strokeWidth={0}
-        >
-          {data.map((entry) => (
-            <Cell
-              key={entry.name}
-              fill={COLORS[entry.name] ?? '#888'}
-              opacity={0.9}
-            />
-          ))}
-        </Pie>
-        <Tooltip content={<CustomTooltip />} />
-        <Legend
-          iconType="circle"
-          iconSize={8}
-          formatter={(value: string) => (
-            <span
-              className="font-mono text-xs"
-              style={{ color: '#9ca3af' }}
-            >
-              {value}
-            </span>
-          )}
-        />
-      </PieChart>
-    </ResponsiveContainer>
+    <div className="flex flex-col justify-center gap-3.5 h-[220px] py-1">
+      {items.map((item) => {
+        const percent = total > 0 ? (item.value / total) * 100 : 0
+        return (
+          <div
+            key={item.name}
+            style={{ backgroundColor: item.bg }}
+            className={`border rounded-xl p-3 flex flex-col gap-2 transition-all duration-300 group ${item.border}`}
+          >
+            <div className="flex items-center justify-between font-mono text-xs">
+              <span className="text-gray-400 font-medium tracking-wide group-hover:text-white transition-colors">
+                {item.name}
+              </span>
+              <span
+                className="font-bold px-2 py-0.5 rounded-md text-[10px]"
+                style={{
+                  color: item.color,
+                  backgroundColor: `${item.color}15`,
+                  border: `1px solid ${item.color}25`
+                }}
+              >
+                {item.value} ({percent.toFixed(1)}%)
+              </span>
+            </div>
+            
+            {/* Progress Track */}
+            <div className="w-full h-2 bg-black/45 rounded-full overflow-hidden border border-white/5 relative">
+              <div
+                className={`h-full rounded-full transition-all duration-1000 ease-out relative ${item.glow}`}
+                style={{
+                  width: `${percent}%`,
+                  backgroundColor: item.color,
+                  boxShadow: `0 0 10px ${item.color}80`
+                }}
+              />
+            </div>
+          </div>
+        )
+      })}
+    </div>
   )
 }

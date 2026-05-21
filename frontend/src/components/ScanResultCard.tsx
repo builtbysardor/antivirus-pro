@@ -145,7 +145,7 @@ export default function ScanResultCard({ result }: ScanResultCardProps) {
       {/* Heuristic findings */}
       {result.heuristic_findings && result.heuristic_findings.length > 0 && (
         <div className="glass-card overflow-hidden">
-          <div className="px-5 py-4 border-b flex items-center gap-2" style={{ borderColor: 'rgba(0,212,255,0.08)' }}>
+          <div className="px-5 py-4 border-b flex items-center gap-2" style={{ borderColor: 'rgba(5,255,133,0.08)' }}>
             <AlertTriangleIcon className="text-warning" size={16} />
             <h3 className="font-mono font-semibold text-white text-sm">
               Heuristic Findings
@@ -186,7 +186,7 @@ export default function ScanResultCard({ result }: ScanResultCardProps) {
       {/* Engine results */}
       {result.engine_results && result.engine_results.length > 0 && (
         <div className="glass-card overflow-hidden">
-          <div className="px-5 py-4 border-b flex items-center gap-2" style={{ borderColor: 'rgba(0,212,255,0.08)' }}>
+          <div className="px-5 py-4 border-b flex items-center gap-2" style={{ borderColor: 'rgba(5,255,133,0.08)' }}>
             <ShieldCheckIcon className="text-cyan" size={16} />
             <h3 className="font-mono font-semibold text-white text-sm">
               Engine Results

@@ -1,24 +1,9 @@
 'use client'
 
 import './globals.css'
-import { Inter, JetBrains_Mono } from 'next/font/google'
 import { useState } from 'react'
 import { Shield, Menu } from 'lucide-react'
 import Sidebar from './Sidebar'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-  preload: false,
-})
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
-  display: 'swap',
-  preload: false,
-})
 
 export default function RootLayout({
   children,
@@ -28,14 +13,14 @@ export default function RootLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en">
       <head>
         <title>Antivirus Pro</title>
         <meta name="description" content="Production-grade antivirus scanner" />
       </head>
       <body
         className="font-sans antialiased"
-        style={{ backgroundColor: '#0a0a0f', color: '#e0e0f0', minHeight: '100vh' }}
+        style={{ backgroundColor: '#020203', color: '#e0e0f0', minHeight: '100vh' }}
       >
         {/* Responsive sidebar */}
         <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
@@ -45,9 +30,9 @@ export default function RootLayout({
           className="fixed top-0 right-0 z-10 flex items-center justify-between px-4 md:px-6 py-4 h-16"
           style={{
             left: 0,
-            backgroundColor: 'rgba(10,10,15,0.9)',
+            backgroundColor: 'rgba(2,2,3,0.9)',
             backdropFilter: 'blur(12px)',
-            borderBottom: '1px solid rgba(0,212,255,0.08)',
+            borderBottom: '1px solid rgba(5,255,133,0.08)',
           }}
         >
           {/* Hamburger — mobile only */}

@@ -237,7 +237,7 @@ export default function MonitorPage() {
       <div className="glass-card overflow-hidden">
         <div
           className="px-5 py-4 border-b flex items-center justify-between"
-          style={{ borderColor: 'rgba(0,212,255,0.08)' }}
+          style={{ borderColor: 'rgba(5,255,133,0.08)' }}
         >
           <div className="flex items-center gap-2">
             <Shield size={15} className="text-cyan" />

@@ -106,8 +106,8 @@ export default function ScanDropzone({
             : isDragging
             ? 'border-success bg-success/5 shadow-[0_0_40px_rgba(0,255,136,0.2)]'
             : selectedFile
-            ? 'border-cyan/50 bg-cyan/5 shadow-[0_0_20px_rgba(0,212,255,0.1)]'
-            : 'border-cyan/30 bg-surface hover:border-cyan/60 hover:bg-cyan/5 hover:shadow-[0_0_30px_rgba(0,212,255,0.1)]'
+            ? 'border-cyan/50 bg-cyan/5 shadow-[0_0_20px_rgba(5,255,133,0.1)]'
+            : 'border-cyan/30 bg-surface hover:border-cyan/60 hover:bg-cyan/5 hover:shadow-[0_0_30px_rgba(5,255,133,0.1)]'
           }
         `}
       >
@@ -117,7 +117,7 @@ export default function ScanDropzone({
             className="w-64 h-64 rounded-full border border-cyan/30 animate-radar-spin"
             style={{
               background:
-                'conic-gradient(from 0deg, transparent 0deg, rgba(0,212,255,0.15) 60deg, transparent 61deg)',
+                'conic-gradient(from 0deg, transparent 0deg, rgba(5,255,133,0.15) 60deg, transparent 61deg)',
             }}
           />
         </div>

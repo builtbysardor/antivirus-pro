@@ -47,8 +47,8 @@ export default function ConfirmModal({
       <div
         className="w-full max-w-md rounded-2xl p-6 space-y-5 relative"
         style={{
-          backgroundColor: '#0d0d1a',
-          border: '1px solid rgba(0,212,255,0.15)',
+          backgroundColor: '#09090b',
+          border: '1px solid rgba(5,255,133,0.15)',
           boxShadow: '0 0 40px rgba(0,0,0,0.8)',
         }}
         role="dialog"

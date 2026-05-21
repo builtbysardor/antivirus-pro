@@ -14,7 +14,7 @@ const colorMap = {
     icon: 'text-cyan',
     iconBg: 'bg-cyan/10',
     border: 'border-cyan/20',
-    glow: 'hover:shadow-[0_0_20px_rgba(0,212,255,0.15)]',
+    glow: 'hover:shadow-[0_0_20px_rgba(5,255,133,0.15)]',
     value: 'text-cyan',
   },
   success: {
@@ -69,7 +69,7 @@ export default function StatCard({
           ) : (
             <p
               className={`text-3xl font-mono font-bold ${colors.value} tracking-tight`}
-              style={{ textShadow: `0 0 20px currentColor` }}
+              style={{ textShadow: `0 0 8px currentColor` }}
             >
               {typeof value === 'number' ? value.toLocaleString() : value}
             </p>

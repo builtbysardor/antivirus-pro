@@ -33,7 +33,7 @@ class RestoreRequest(BaseModel):
 # ---------------------------------------------------------------------------
 
 
-@router.get("/", summary="List quarantined files", response_model=list[ScanResult])
+@router.get("", summary="List quarantined files", response_model=list[ScanResult])
 async def list_quarantined() -> list[ScanResult]:
     """Return all scan results that have been quarantined."""
     return await get_quarantined_files()

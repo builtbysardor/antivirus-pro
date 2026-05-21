@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import Link from 'next/link'
 import {
   LayoutDashboard,
@@ -18,7 +20,8 @@ import { formatDate } from '@/lib/utils'
 async function fetchStats(): Promise<StatsResponse> {
   try {
     return await getStats()
-  } catch {
+  } catch (err) {
+    console.error("fetchStats failed:", err)
     return {
       total_scans: 0,
       clean_files: 0,
@@ -35,7 +38,8 @@ async function fetchStats(): Promise<StatsResponse> {
 async function fetchHistory(): Promise<ScanHistoryResponse> {
   try {
     return await getScanHistory(200)
-  } catch {
+  } catch (err) {
+    console.error("fetchHistory failed:", err)
     return { items: [], total: 0, limit: 200, offset: 0 }
   }
 }
@@ -199,9 +203,8 @@ export default async function DashboardPage() {
         malicious={stats.malicious_count}
       />
 
-      {/* Recent scan history */}
       <div className="glass-card overflow-hidden">
-        <div className="px-5 py-4 border-b flex items-center justify-between" style={{ borderColor: 'rgba(0,212,255,0.08)' }}>
+        <div className="px-5 py-4 border-b flex items-center justify-between" style={{ borderColor: 'rgba(5,255,133,0.08)' }}>
           <div className="flex items-center gap-2">
             <Shield size={16} className="text-cyan" />
             <h2 className="font-mono font-semibold text-white text-sm tracking-wide">
@@ -261,7 +264,7 @@ export default async function DashboardPage() {
       {/* CTA */}
       <div
         className="glass-card p-8 text-center"
-        style={{ background: 'rgba(0,212,255,0.03)' }}
+        style={{ background: 'rgba(5,255,133,0.03)' }}
       >
         <Shield size={40} className="text-cyan mx-auto mb-4 opacity-80" />
         <h3 className="font-mono font-bold text-white text-lg mb-2">

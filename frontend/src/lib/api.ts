@@ -67,6 +67,7 @@ async function request<T>(
   options?: RequestInit
 ): Promise<T> {
   const response = await fetch(`${BASE}${path}`, {
+    cache: 'no-store',
     headers: {
       'Content-Type': 'application/json',
       ...options?.headers,

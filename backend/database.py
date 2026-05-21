@@ -242,10 +242,10 @@ async def get_stats() -> Dict[str, Any]:
         "total_scans": total_scans,
         "clean_files": clean_count,
         "threats_found": suspicious_count + malicious_count,
-        "quarantined_count": quarantine_count,
+        "quarantined_count": quarantined_count,
         "engine_status": "active",
         "last_scan_time": last_scan_time,
-        "scans_today": last_24h_scans,
+        "scans_today": scans_today,
         "malicious_count": malicious_count,
         "suspicious_count": suspicious_count,
     }

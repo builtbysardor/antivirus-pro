@@ -47,14 +47,14 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           md:translate-x-0
         `}
         style={{
-          backgroundColor: '#0d0d1a',
-          borderRight: '1px solid rgba(0,212,255,0.08)',
+          backgroundColor: '#09090b',
+          borderRight: '1px solid rgba(5,255,133,0.08)',
         }}
       >
         {/* Logo */}
         <div
           className="flex items-center justify-between gap-3 px-6 py-5 border-b"
-          style={{ borderColor: 'rgba(0,212,255,0.08)' }}
+          style={{ borderColor: 'rgba(5,255,133,0.08)' }}
         >
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-cyan/10 border border-cyan/30 flex items-center justify-center flex-shrink-0">
@@ -87,11 +87,11 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
                 className={`
                   flex items-center gap-3 px-3 py-2.5 rounded-xl font-mono text-sm
                   transition-all duration-200 group
-                  ${
-                    isActive
-                      ? 'bg-cyan/10 text-cyan border border-cyan/20 shadow-[0_0_12px_rgba(0,212,255,0.1)]'
-                      : 'text-gray-400 hover:text-white hover:bg-white/5 border border-transparent'
-                  }
+                    ${
+                      isActive
+                        ? 'bg-cyan/10 text-cyan border border-cyan/20 shadow-[0_0_12px_rgba(5,255,133,0.15)]'
+                        : 'text-gray-400 hover:text-white hover:bg-white/5 border border-transparent'
+                    }
                 `}
               >
                 <Icon
@@ -114,7 +114,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         {/* Footer */}
         <div
           className="px-4 py-4 border-t"
-          style={{ borderColor: 'rgba(0,212,255,0.08)' }}
+          style={{ borderColor: 'rgba(5,255,133,0.08)' }}
         >
           <div className="flex items-center gap-2 px-2 py-2 rounded-lg bg-success/5 border border-success/20">
             <span className="w-2 h-2 rounded-full bg-success animate-pulse flex-shrink-0" />

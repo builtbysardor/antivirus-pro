@@ -9,6 +9,20 @@ Antivirus Pro is a full-stack cybersecurity scanner with a Rust heuristic engine
 
 ---
 
+## 🖥️ Demo & Screenshot Preview
+
+### 📊 Modern Cyberpunk Dashboard
+A sleek, pitch-black cybersecurity cockpit with glowing neon green indicator bento cards and live dynamic horizontal progress charts showing your system's health.
+
+![Antivirus Pro Dashboard Preview](screenshots/dashboard_v2.png)
+
+### ⚡ Real-Time Heuristic Scan & Threats
+Watch the multi-threaded Rust heuristic scanner detect, isolate, and quarantine malicious threats instantly.
+
+![Antivirus Pro Demo Flow](screenshots/demo_video.webp)
+
+---
+
 ## Features
 
 - **Rust-powered heuristic analysis** — multi-threaded file scanning via `rayon` with entropy scoring, PE header inspection, and suspicious-string matching

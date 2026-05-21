@@ -214,7 +214,7 @@ export default function ThreatsPage() {
       {/* Loading skeleton */}
       {loading && (
         <div className="glass-card overflow-hidden">
-          <div className="px-5 py-4 border-b" style={{ borderColor: 'rgba(0,212,255,0.08)' }}>
+          <div className="px-5 py-4 border-b" style={{ borderColor: 'rgba(5,255,133,0.08)' }}>
             <div className="skeleton h-4 w-40 rounded" />
           </div>
           <div className="p-5 space-y-3">
@@ -243,7 +243,7 @@ export default function ThreatsPage() {
       {/* Quarantined files table */}
       {!loading && !error && files.length > 0 && (
         <div className="glass-card overflow-hidden">
-          <div className="px-5 py-4 border-b flex items-center gap-2" style={{ borderColor: 'rgba(0,212,255,0.08)' }}>
+          <div className="px-5 py-4 border-b flex items-center gap-2" style={{ borderColor: 'rgba(5,255,133,0.08)' }}>
             <Archive size={16} className="text-warning" />
             <h2 className="font-mono font-semibold text-white text-sm">
               Quarantined Files

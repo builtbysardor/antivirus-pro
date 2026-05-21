@@ -61,7 +61,7 @@ function Toggle({
           focus:outline-none
           ${
             enabled
-              ? 'bg-cyan/30 border-cyan/60 shadow-[0_0_8px_rgba(0,212,255,0.3)]'
+              ? 'bg-cyan/30 border-cyan/60 shadow-[0_0_8px_rgba(5,255,133,0.3)]'
               : 'bg-white/5 border-white/10'
           }
         `}
@@ -69,7 +69,7 @@ function Toggle({
         <span
           className={`
             inline-block h-4 w-4 rounded-full transition-transform duration-200 mt-0.5
-            ${enabled ? 'translate-x-5 bg-cyan shadow-[0_0_6px_rgba(0,212,255,0.8)]' : 'translate-x-0.5 bg-gray-500'}
+            ${enabled ? 'translate-x-5 bg-cyan shadow-[0_0_6px_rgba(5,255,133,0.8)]' : 'translate-x-0.5 bg-gray-500'}
           `}
         />
       </button>
@@ -132,7 +132,7 @@ export default function SettingsPage() {
 
       {/* Engine Settings */}
       <section className="glass-card p-6 space-y-5">
-        <div className="flex items-center gap-2 pb-3 border-b" style={{ borderColor: 'rgba(0,212,255,0.08)' }}>
+        <div className="flex items-center gap-2 pb-3 border-b" style={{ borderColor: 'rgba(5,255,133,0.08)' }}>
           <div className="w-8 h-8 rounded-lg bg-cyan/10 border border-cyan/20 flex items-center justify-center">
             <Shield size={15} className="text-cyan" />
           </div>
@@ -186,7 +186,7 @@ export default function SettingsPage() {
 
       {/* Quarantine Settings */}
       <section className="glass-card p-6 space-y-5">
-        <div className="flex items-center gap-2 pb-3 border-b" style={{ borderColor: 'rgba(0,212,255,0.08)' }}>
+        <div className="flex items-center gap-2 pb-3 border-b" style={{ borderColor: 'rgba(5,255,133,0.08)' }}>
           <div className="w-8 h-8 rounded-lg bg-warning/10 border border-warning/20 flex items-center justify-center">
             <Archive size={15} className="text-warning" />
           </div>
@@ -217,7 +217,7 @@ export default function SettingsPage() {
 
       {/* Notification Settings */}
       <section className="glass-card p-6 space-y-5">
-        <div className="flex items-center gap-2 pb-3 border-b" style={{ borderColor: 'rgba(0,212,255,0.08)' }}>
+        <div className="flex items-center gap-2 pb-3 border-b" style={{ borderColor: 'rgba(5,255,133,0.08)' }}>
           <div className="w-8 h-8 rounded-lg bg-success/10 border border-success/20 flex items-center justify-center">
             <Bell size={15} className="text-success" />
           </div>
@@ -260,7 +260,7 @@ export default function SettingsPage() {
       </div>
 
       {/* Version info */}
-      <div className="pt-4 border-t" style={{ borderColor: 'rgba(0,212,255,0.06)' }}>
+      <div className="pt-4 border-t" style={{ borderColor: 'rgba(5,255,133,0.06)' }}>
         <p className="font-mono text-xs text-gray-700">
           Antivirus Pro · Settings are stored in your browser&apos;s local storage
         </p>

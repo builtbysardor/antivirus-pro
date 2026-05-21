@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#0a0a0f',
-        surface: '#0d0d1a',
-        'surface-2': '#111122',
+        background: '#020203',
+        surface: '#09090b',
+        'surface-2': '#121214',
         cyan: {
-          DEFAULT: '#00d4ff',
-          dim: 'rgba(0,212,255,0.1)',
-          glow: 'rgba(0,212,255,0.5)',
+          DEFAULT: '#05ff85',
+          dim: 'rgba(5,255,133,0.1)',
+          glow: 'rgba(5,255,133,0.5)',
         },
         danger: {
           DEFAULT: '#ff3366',
@@ -32,23 +32,23 @@ const config: Config = {
           dim: 'rgba(0,255,136,0.1)',
           glow: 'rgba(0,255,136,0.5)',
         },
-        border: 'rgba(0,212,255,0.1)',
+        border: 'rgba(5,255,133,0.1)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       animation: {
-        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
         'radar-spin': 'radarSpin 3s linear infinite',
-        'threat-flash': 'threatFlash 1s ease-in-out infinite',
+        'threat-flash': 'threatFlash 3s ease-in-out infinite',
         'fade-in': 'fadeIn 0.3s ease-in-out',
         'slide-up': 'slideUp 0.3s ease-out',
       },
       keyframes: {
         pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 5px rgba(0,212,255,0.3)' },
-          '50%': { boxShadow: '0 0 20px rgba(0,212,255,0.8), 0 0 40px rgba(0,212,255,0.4)' },
+          '0%, 100%': { boxShadow: '0 0 6px rgba(5,255,133,0.1)' },
+          '50%': { boxShadow: '0 0 14px rgba(5,255,133,0.25)' },
         },
         radarSpin: {
           from: { transform: 'rotate(0deg)' },
@@ -56,7 +56,7 @@ const config: Config = {
         },
         threatFlash: {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.4' },
+          '50%': { opacity: '0.8' },
         },
         fadeIn: {
           from: { opacity: '0' },
@@ -69,7 +69,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'grid-pattern': 'linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px)',
+        'grid-pattern': 'linear-gradient(rgba(5,255,133,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(5,255,133,0.03) 1px, transparent 1px)',
       },
       backgroundSize: {
         'grid': '50px 50px',

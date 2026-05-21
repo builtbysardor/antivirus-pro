@@ -197,6 +197,7 @@ async def scan_history(limit: int = 50, offset: int = 0) -> ScanHistoryResponse:
 
 
 @router.get("/{scan_id}", summary="Get scan result", response_model=ScanResult)
+@router.get("/result/{scan_id}", summary="Get scan result (alternative)", response_model=ScanResult)
 async def get_scan(scan_id: str) -> ScanResult:
     """Return the scan result for the given *scan_id*."""
     result = await get_scan_result(scan_id)
