@@ -1,3 +1,42 @@
+# Node
+node_modules/
+.next/
+out/
+build/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+.env
+.venv/
 venv/
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Rust
+target/
+**/*.rs.bk
+
+# Database
+*.db
+*.sqlite3
+antivirus.db
+antivirus.db-journal
+
+# OS & Logs
+.DS_Store
+Thumbs.db
 *.xwd
+logs/
+*.log
+
+# IDEs
+.vscode/
+.idea/

@@ -1,35 +1,49 @@
-# Enterprise Antivirus Solution
-
-A comprehensive, next-generation threat protection platform designed for enterprise environments.
-
-## Overview
-
-This Enterprise Antivirus Solution provides advanced, real-time protection against malware, ransomware, and zero-day threats. Built with performance and scalability in mind, it offers centralized management and deep visibility into endpoint security across the entire organizational network.
-
 <div align="center">
-  <img src="screenshots/demo_screenshot.png" alt="Dashboard" width="100%" style="border-radius: 8px; border: 1px solid #4CAF50; box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);">
+  <h1>🛡️ ANTIVIRUS PRO</h1>
+  <p><strong>Next-Generation Heuristic Threat Protection Platform</strong></p>
+  
+  <img src="screenshots/demo_video.svg" alt="Real-time Demo" width="100%" style="border-radius: 12px; box-shadow: 0 0 20px rgba(0,255,65,0.2);">
 </div>
 
-## Key Features
+---
 
-- **Real-Time Threat Detection:** Advanced heuristics and machine learning algorithms identify and neutralize threats instantaneously.
-- **Centralized Management Console:** A single pane of glass for monitoring, policy enforcement, and reporting across all endpoints.
-- **Minimal System Impact:** Optimized scanning engine ensures maximum protection without compromising system performance.
-- **Automated Remediation:** Intelligent response capabilities automatically isolate compromised endpoints and rollback malicious changes.
-- **Comprehensive Reporting:** Detailed analytics and compliance reporting tailored for enterprise security operations.
+## ⚡ BENTO ARCHITECTURE
 
-## Architecture
+Antivirus Pro runs on a cutting-edge triple-layered architecture, offering zero latency and maximum threat containment:
 
-The solution utilizes a lightweight client-server architecture:
+1. **Rust Core:** Bare-metal heuristic analysis and entropy scanning via `rayon`.
+2. **FastAPI Hub:** Neural proxy that synchronizes telemetry and manages SQLite persistence.
+3. **Cyberpunk Command Center:** Next.js 15 realtime cockpit delivering deep network visibility.
 
-1.  **Endpoint Agent:** A low-footprint sensor deployed on user machines and servers.
-2.  **Management Server:** Centralized hub for policy distribution, telemetry collection, and alert aggregation.
-3.  **Threat Intelligence Cloud:** Continuous updates and global threat data integration.
+---
 
-## Installation
+## 📸 INTERFACE STAGES
 
-Refer to the `docs/deployment.md` guide for detailed installation instructions tailored to your infrastructure.
+Explore the pitch-black, cyberpunk-themed command center designed for maximum threat visibility.
 
-## Support
+<div align="center">
+  <img src="screenshots/stage1.png" alt="Dashboard" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
+  <img src="screenshots/stage2.png" alt="Scan Engine" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
+  <img src="screenshots/stage3.png" alt="Threats & Quarantine" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
+  <img src="screenshots/stage4.png" alt="System Settings" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
+</div>
 
-For technical assistance, please contact the enterprise support team or consult the documentation portal.
+---
+
+## 🚀 ENTERPRISE DEPLOYMENT
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/builtbysardor/antivirus-pro.git
+
+# 2. Install core dependencies
+make install
+
+# 3. Compile the Rust Engine
+make build-rust
+
+# 4. Boot the Network
+make dev
+```
+
+*Engineered with Rust, Python, and Next.js 15.*
