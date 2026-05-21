@@ -27,14 +27,15 @@ export interface ScanResult {
   sha256: string
   md5?: string
   threat_level: ThreatLevel
-  is_malicious: boolean
+  is_malicious?: boolean
   scan_duration_ms: number
   scanned_at: string
-  heuristic_findings: HeuristicFinding[]
-  engine_results: EngineResult[]
+  heuristic_findings?: HeuristicFinding[]
+  engine_results?: EngineResult[]
   error_message?: string
-  status: 'pending' | 'scanning' | 'completed' | 'error'
+  status: 'pending' | 'scanning' | 'completed' | 'failed'
   quarantined?: boolean
+  quarantine_path?: string
 }
 
 export interface StatsResponse {
@@ -145,15 +146,16 @@ export async function quarantineFile(
   scanId: string,
   reason?: string
 ): Promise<void> {
-  await request<void>(`/scan/quarantine/${scanId}`, {
+  await request<void>(`/quarantine/${scanId}`, {
     method: 'POST',
-    body: JSON.stringify({ reason: reason || 'Manual quarantine' }),
+    body: JSON.stringify({ user_consent: true, reason: reason || 'Manual quarantine' }),
   })
 }
 
 export async function deleteQuarantined(scanId: string): Promise<void> {
-  await request<void>(`/scan/quarantine/${scanId}`, {
+  await request<void>(`/quarantine/${scanId}`, {
     method: 'DELETE',
+    body: JSON.stringify({ confirm: true }),
   })
 }
 
@@ -161,14 +163,14 @@ export async function restoreFile(
   scanId: string,
   restorePath: string
 ): Promise<void> {
-  await request<void>(`/scan/quarantine/${scanId}/restore`, {
+  await request<void>(`/quarantine/${scanId}/restore`, {
     method: 'POST',
     body: JSON.stringify({ restore_path: restorePath }),
   })
 }
 
 export async function getQuarantined(): Promise<ScanResult[]> {
-  return request<ScanResult[]>('/scan/quarantine')
+  return request<ScanResult[]>('/quarantine/')
 }
 
 export async function startRealtimeMonitor(directory: string): Promise<void> {

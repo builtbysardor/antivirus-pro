@@ -195,16 +195,20 @@ async def get_stats() -> Dict[str, Any]:
         async with db.execute(
             "SELECT COUNT(*) as cnt FROM scan_results WHERE quarantined = 1"
         ) as cur:
-            quarantine_count = (await cur.fetchone())["cnt"]
+            quarantined_count = (await cur.fetchone())["cnt"]
 
-        cutoff = (datetime.utcnow() - timedelta(hours=24)).isoformat()
+        cutoff_day = (datetime.utcnow() - timedelta(hours=24)).isoformat()
         async with db.execute(
             "SELECT COUNT(*) as cnt FROM scan_results WHERE scanned_at >= ?",
-            (cutoff,),
+            (cutoff_day,),
         ) as cur:
-            last_24h_scans = (await cur.fetchone())["cnt"]
+            scans_today = (await cur.fetchone())["cnt"]
 
-        # Top threats: expand JSON arrays and count occurrences
+        async with db.execute(
+            "SELECT MAX(scanned_at) as last FROM scan_results"
+        ) as cur:
+            last_scan_time = (await cur.fetchone())["last"]
+
         async with db.execute(
             "SELECT threat_names FROM scan_results WHERE threat_names != '[]'"
         ) as cur:

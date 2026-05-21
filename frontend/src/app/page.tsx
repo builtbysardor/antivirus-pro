@@ -170,7 +170,7 @@ export default async function DashboardPage() {
             Scans Today
           </p>
           <p className="text-2xl font-mono font-bold text-cyan">
-            {stats.scans_today.toLocaleString()}
+            {(stats.scans_today ?? 0).toLocaleString()}
           </p>
         </div>
         <div className="glass-card p-4">
@@ -178,7 +178,7 @@ export default async function DashboardPage() {
             Malicious
           </p>
           <p className="text-2xl font-mono font-bold text-danger">
-            {stats.malicious_count.toLocaleString()}
+            {(stats.malicious_count ?? 0).toLocaleString()}
           </p>
         </div>
         <div className="glass-card p-4">
@@ -186,7 +186,7 @@ export default async function DashboardPage() {
             Suspicious
           </p>
           <p className="text-2xl font-mono font-bold text-warning">
-            {stats.suspicious_count.toLocaleString()}
+            {(stats.suspicious_count ?? 0).toLocaleString()}
           </p>
         </div>
       </div>
