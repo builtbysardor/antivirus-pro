@@ -1,198 +1,161 @@
-# Antivirus Pro
+<div align="center">
+  <img src="screenshots/dashboard_v2.png" alt="Antivirus Pro - Enterprise Cybersecurity" style="border-radius: 12px; border: 2px solid #00ff41; box-shadow: 0 0 20px rgba(0, 255, 65, 0.2); margin-bottom: 20px;">
 
-![Python](https://img.shields.io/badge/Python-3.11%2B-blue?logo=python&logoColor=white)
-![Rust](https://img.shields.io/badge/Rust-1.75%2B-orange?logo=rust&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
+  <h1>🛡️ ANTIVIRUS PRO</h1>
+  <p><strong>Next-Generation Heuristic Threat Detection & Response Engine</strong></p>
 
-Antivirus Pro is a full-stack cybersecurity scanner with a Rust heuristic engine, FastAPI backend, and Next.js dashboard.
+  <p>
+    <a href="https://rust-lang.org"><img src="https://img.shields.io/badge/Rust-1.75%2B-FA4F00?style=for-the-badge&logo=rust&logoColor=white" alt="Rust"></a>
+    <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"></a>
+    <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-00FF41?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License"></a>
+  </p>
+</div>
 
 ---
 
-## 🖥️ Demo & Screenshot Preview
+## ⚡ ARCHITECTURE OVERVIEW
 
-### 📊 Modern Cyberpunk Dashboard
-A sleek, pitch-black cybersecurity cockpit with glowing neon green indicator bento cards and live dynamic horizontal progress charts showing your system's health.
+Antivirus Pro deploys a zero-trust, high-performance architecture operating across three isolated layers. The multi-threaded Rust core handles bare-metal heuristic scanning, communicating securely via REST/WebSocket to the FastAPI hub, ultimately rendered in a low-latency Next.js cyberpunk command center.
 
-![Antivirus Pro Dashboard Preview](screenshots/dashboard_v2.png)
+```text
++-------------------------------------------------------------+
+|                     COMMAND CENTER                          |
+|             Next.js 15  ·  Tailwind  ·  Recharts            |
+|                   [ Port 3000 ]                             |
++------------------------------+------------------------------+
+                               | WSS / HTTPS
++------------------------------v------------------------------+
+|                    NEURAL PROXY HUB                         |
+|         FastAPI  ·  aiosqlite  ·  httpx  ·  aiofiles        |
+|                   [ Port 8000 ]                             |
++--------------+-------------------------------+--------------+
+               | FFI / Subprocess              | VirusTotal API
++--------------v---------------+ +-------------v--------------+
+|        HEURISTIC CORE        | |      THREAT INTEL          |
+|    Rust · rayon · notify     | |      VirusTotal v3         |
+|  Entropy · PE Header Checks  | |   (Global Reputation)      |
++------------------------------+ +----------------------------+
+```
 
-### ⚡ Real-Time Heuristic Scan & Threats
+---
+
+## 🎛️ BENTO FEATURES
+
+<table>
+<tr>
+<td width="50%">
+  <h3>🔬 Rust-Powered Heuristics</h3>
+  <p>Multi-threaded file scanning utilizing <code>rayon</code>. Executes high-speed entropy scoring, PE header anomaly inspection, and pattern-based suspicious string matching at bare-metal speeds.</p>
+</td>
+<td width="50%">
+  <h3>🌐 Global Threat Intel</h3>
+  <p>Integrates instantly with VirusTotal v3 API. Performs optional cloud reputation lookups against 70+ top-tier antivirus engines to validate zero-day heuristics.</p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+  <h3>👁️ Real-Time Monitoring</h3>
+  <p>Deploys a <code>notify</code>-based active file system watcher. Continuously monitors highly-sensitive directories, automatically intercepting and scanning new or modified binaries.</p>
+</td>
+<td width="50%">
+  <h3>🔒 Cryptographic Quarantine</h3>
+  <p>Infected payloads are instantly isolated, stripped of execution privileges, and obfuscated using XOR cryptography to completely neutralize lateral movement risks.</p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+  <h3>📡 WebSocket Telemetry</h3>
+  <p>Pushes live, sub-millisecond telemetry directly to the dashboard. Operators receive real-time scan progress and threat alerts over an encrypted WebSocket stream.</p>
+</td>
+<td width="50%">
+  <h3>🟩 Cyberpunk Cockpit</h3>
+  <p>A sleek, pitch-black Next.js 15 command centre engineered with Tailwind CSS. Features dynamic data visualizations, live charts, and a neon-green threat level taxonomy.</p>
+</td>
+</tr>
+</table>
+
+---
+
+## 🎥 LIVE INTERCEPT DEMO
+
 Watch the multi-threaded Rust heuristic scanner detect, isolate, and quarantine malicious threats instantly.
 
-![Antivirus Pro Demo Flow](screenshots/demo_video.webp)
+<div align="center">
+  <video src="screenshots/demo.mp4" controls="controls" muted="muted" loop="loop" width="100%" style="border-radius: 10px; border: 1px solid #00ff41; box-shadow: 0 0 15px rgba(0,255,65,0.1);"></video>
+</div>
 
 ---
 
-## Features
+## 🔌 API ROUTING MATRIX
 
-- **Rust-powered heuristic analysis** — multi-threaded file scanning via `rayon` with entropy scoring, PE header inspection, and suspicious-string matching
-- **VirusTotal cloud scanning** — optional cloud reputation lookup against 70+ antivirus engines via the VirusTotal v3 API
-- **Real-time file system monitoring** — `notify`-based watcher that continuously monitors configured directories and auto-scans new/modified files
-- **File quarantine with XOR obfuscation** — infected files are isolated and obfuscated in a configurable quarantine directory so they cannot execute
-- **WebSocket progress streaming** — live scan-progress events pushed to the dashboard over WebSockets for immediate feedback
-- **Dark cyberpunk UI** — Next.js 15 dashboard with Tailwind CSS, real-time charts, and a threat-level colour system
+The FastAPI hub exposes a robust suite of RESTful endpoints designed for enterprise automation and SIEM integration.
 
----
+| Method | Endpoint | Authorization | Description |
+|:---|:---|:---|:---|
+| <kbd>POST</kbd> | `/api/scan/upload` | Bearer Token | Ingests a payload for immediate heuristic and signature analysis. Returns a UUID. |
+| <kbd>GET</kbd> | `/api/scan/result/{id}` | Bearer Token | Fetches the comprehensive cryptographic report and verdict for a specific scan UUID. |
+| <kbd>GET</kbd> | `/api/scan/history` | Bearer Token | Retrieves a paginated, temporal log of all historical scan telemetry. |
+| <kbd>GET</kbd> | `/api/stats` | Bearer Token | Exports aggregate threat metrics (total ingested, neutralized, clean vectors). |
+| <kbd>GET</kbd> | `/api/scan/quarantine` | Bearer Token | Lists all XOR-obfuscated payloads currently residing in the isolation matrix. |
+| <kbd>POST</kbd> | `/api/scan/quarantine` | Bearer Token | Manually intercepts and isolates a specified file path into quarantine. |
+| <kbd>DELETE</kbd> | `/api/scan/quarantine` | Bearer Token | Permanently incinerates or restores an isolated payload. |
+| <kbd>GET</kbd> | `/health` | Public | Liveness probe. Returns `{"status": "ok"}` for orchestration load balancers. |
 
-## Architecture
-
-Antivirus Pro is composed of three loosely-coupled layers that communicate over HTTP/WebSocket:
-
-```
-┌─────────────────────────────────────────────────────┐
-│                   Browser / Client                  │
-│          Next.js 15  ·  Tailwind CSS  ·  Recharts   │
-│               http://localhost:3000                 │
-└────────────────────────┬────────────────────────────┘
-                         │ REST + WebSocket
-┌────────────────────────▼────────────────────────────┐
-│                  Python Backend                     │
-│     FastAPI  ·  aiosqlite  ·  httpx  ·  aiofiles    │
-│               http://localhost:8000                 │
-└───────────┬────────────────────────┬────────────────┘
-            │ subprocess / FFI       │ VirusTotal API
-┌───────────▼────────────┐    ┌──────▼──────────────┐
-│      Rust Core         │    │   VirusTotal v3      │
-│  av-core binary        │    │   (cloud, optional)  │
-│  heuristics · rayon    │    └─────────────────────┘
-│  sha2 · notify · regex │
-└────────────────────────┘
-```
-
-| Layer | Responsibility |
-|---|---|
-| **Rust core** (`core/`) | CPU-intensive heuristic scanning, hash computation, real-time FS monitoring |
-| **Python backend** (`backend/`) | REST API, WebSocket hub, DB persistence, quarantine management, VirusTotal proxy |
-| **Next.js frontend** (`frontend/`) | Interactive dashboard, file upload, scan history, quarantine management |
+> **Interactive Swagger UI:** Available at `http://localhost:8000/docs`
 
 ---
 
-## Quick Start
+## 🚀 DEPLOYMENT
 
 ```bash
-# 1. Clone the repository
+# 1. Establish secure connection & clone repository
 git clone https://github.com/builtbysardor/antivirus-pro.git
 cd antivirus-pro
 
-# 2. Install all dependencies (Python + Node.js)
+# 2. Provision node and python environments
 make install
 
-# 3. Build the Rust heuristic engine
+# 3. Compile the Rust heuristic binary (Release Mode)
 make build-rust
 
-# 4. Start both dev servers (backend on :8000, frontend on :3000)
+# 4. Initialize the Cyberpunk Command Center & API Hub
 make dev
 ```
 
-> **Tip:** Run `make help` at any time to see all available Make targets.
+### Environment Configuration
+
+Clone `.env.example` to `.env` and provision the following variables:
+
+| Variable | Description |
+|:---|:---|
+| `VIRUSTOTAL_API_KEY` | Your VT v3 API Key for global threat intel (Optional). |
+| `DATABASE_URL` | SQLite or PostgreSQL URI for telemetry persistence (Default: `sqlite:///./av.db`). |
+| `QUARANTINE_DIR` | Absolute path for the XOR-isolated payload storage (Default: `/tmp/av_quarantine`). |
+| `DEV_MODE` | Boolean toggle for verbose logging and active debugging (Default: `false`). |
 
 ---
 
-## Configuration
+## 🐳 CONTAINERIZATION
 
-Copy `.env.example` to `.env` and set the variables below before starting the server.
-
-| Variable | Default | Description |
-|---|---|---|
-| `VIRUSTOTAL_API_KEY` | *(none)* | VirusTotal v3 API key. Leave empty to disable cloud scanning. |
-| `DATABASE_URL` | `sqlite:///./av.db` | SQLite or PostgreSQL connection string for scan history. |
-| `QUARANTINE_DIR` | `/tmp/av_quarantine` | Directory where quarantined files are stored (XOR-obfuscated). |
-| `DEV_MODE` | `false` | Set to `true` to enable verbose logging and skip production guards. |
-
----
-
-## API Endpoints
-
-| Method | Path | Description |
-|---|---|---|
-| `POST` | `/api/scan/upload` | Upload a file for scanning; returns a scan `id` immediately. |
-| `GET` | `/api/scan/result/{id}` | Fetch the completed scan result by scan ID. |
-| `GET` | `/api/scan/history` | List all past scans (paginated). |
-| `GET` | `/api/stats` | Aggregate statistics (total scans, threats found, clean files). |
-| `GET` | `/api/scan/quarantine` | List all files currently in quarantine. |
-| `POST` | `/api/scan/quarantine` | Quarantine a specific file by path. |
-| `DELETE` | `/api/scan/quarantine` | Restore or permanently delete a quarantined file. |
-| `GET` | `/health` | Liveness probe — returns `{"status": "ok"}`. |
-
-Full interactive docs are available at `http://localhost:8000/docs` (Swagger UI) and `http://localhost:8000/redoc` (ReDoc) when the backend is running.
-
----
-
-## Tech Stack
-
-### Rust Core (`core/`)
-
-| Crate | Purpose |
-|---|---|
-| `tokio` | Async runtime for the realtime monitor |
-| `rayon` | Data-parallel file scanning |
-| `notify` | Cross-platform file system event watcher |
-| `sha2` | SHA-256 hash computation for signature matching |
-| `regex` | Suspicious-string pattern matching |
-| `clap` | CLI argument parsing for the `av-core` binary |
-
-### Python Backend (`backend/`)
-
-| Package | Purpose |
-|---|---|
-| `FastAPI` | Async REST API framework |
-| `uvicorn` | ASGI server with WebSocket support |
-| `aiofiles` | Non-blocking file I/O for uploads and quarantine |
-| `aiosqlite` | Async SQLite adapter for scan history |
-| `httpx` | Async HTTP client for VirusTotal API calls |
-
-### TypeScript Frontend (`frontend/`)
-
-| Package | Purpose |
-|---|---|
-| `Next.js 15` | React framework with App Router and server components |
-| `Tailwind CSS` | Utility-first CSS — dark cyberpunk theme |
-| `Recharts` | Animated charts for scan statistics |
-| `Lucide React` | Icon library |
-
----
-
-## Development
+Engineered for seamless orchestration via Docker Compose.
 
 ```bash
-make help            # list all targets
-make install         # install dependencies
-make build-rust      # compile Rust engine (release)
-make build-frontend  # compile Next.js production build
-make build           # both of the above
-make dev             # start backend + frontend dev servers
-make test-rust       # run Rust unit tests
-make lint            # run ESLint on the frontend
-make docker-up       # build & start the full Docker Compose stack
-make docker-down     # stop the Docker Compose stack
-make clean           # remove all build artefacts
+make docker-up    # Provision and spin up all microservices
+make docker-down  # Halt operations and teardown network
 ```
 
----
-
-## Docker
-
-The project ships with a `docker-compose.yml` at the repo root.
-
-```bash
-make docker-up    # builds and starts all services
-make docker-down  # tears everything down
-```
-
-Services exposed:
-
-| Service | URL |
-|---|---|
-| Frontend | `http://localhost:3000` |
-| Backend API | `http://localhost:8000` |
-| API Docs | `http://localhost:8000/docs` |
+| Service | Protocol | Binding |
+|:---|:---|:---|
+| **Command Center (UI)** | HTTP | `localhost:3000` |
+| **Neural Hub (API)** | HTTP/WS | `localhost:8000` |
 
 ---
 
-## License
+## 📜 LICENSE
 
-This project is licensed under the [MIT License](LICENSE).
+Classified under the [MIT License](LICENSE). 
 
----
-
-*Built with Rust, Python, and TypeScript by [builtbysardor](https://github.com/builtbysardor).*
+<div align="right">
+  <i>Forged with Rust, Python, and TypeScript by <a href="https://github.com/builtbysardor">builtbysardor</a>.</i>
+</div>
