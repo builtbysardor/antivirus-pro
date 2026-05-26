@@ -61,11 +61,10 @@
 ## 📸 Interface
 
 <div align="center">
-  <img src="assets/screenshots/01_dashboard.png" alt="Main Dashboard" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
-  <img src="assets/screenshots/02_scan.png" alt="Active Scan" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
-  <img src="assets/screenshots/03_threats.png" alt="Threat Log" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
-  <img src="assets/screenshots/04_monitor.png" alt="System Monitor" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
-  <img src="assets/screenshots/05_settings.png" alt="Settings" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
+  <img src="screenshots/stage1.png" alt="Dashboard" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
+  <img src="screenshots/stage2.png" alt="Scan Engine" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
+  <img src="screenshots/stage3.png" alt="Threats & Quarantine" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
+  <img src="screenshots/stage4.png" alt="System Settings" width="48%" style="border-radius: 8px; border: 1px solid #00ff41; margin: 4px;">
 </div>
 
 ---
