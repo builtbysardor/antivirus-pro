@@ -1,12 +1,10 @@
 from __future__ import annotations
 
 import asyncio
-import hashlib
 import json
 import logging
 import os
 import time
-import uuid
 from datetime import datetime
 from pathlib import Path
 from typing import TYPE_CHECKING, Optional
@@ -14,7 +12,7 @@ from typing import TYPE_CHECKING, Optional
 import aiofiles
 import httpx
 
-from backend.core.security import RUST_SCANNER_PATH, TEMP_DIR
+from backend.core.security import RUST_SCANNER_PATH
 from backend.database import save_scan_result
 from backend.models import (
     CloudEngineResult,
