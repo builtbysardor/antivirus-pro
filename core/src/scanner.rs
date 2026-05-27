@@ -220,6 +220,7 @@ impl Scanner {
             file_path: path.to_path_buf(),
             sha256,
             file_size,
+            entropy: compute_entropy(&data),
             threat_level,
             findings,
             is_signature_match,
