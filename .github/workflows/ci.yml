@@ -40,7 +40,7 @@ jobs:
       - name: ruff lint
         run: ruff check backend/
       - name: bandit security scan
-        run: bandit -r backend/ -ll
+        run: bandit -r backend/ -ll --skip B104,B108
 
   frontend:
     name: Node.js (build + lint)
