@@ -26,4 +26,4 @@ log = "0.4"
 env_logger = "0.11"
 regex = "1"
 chrono = { version = "0.4", features = ["serde"] }
-goblin = { version = "0.8", default-features = false, features = ["pe"] }
+goblin = { version = "0.8", default-features = false, features = ["pe32"] }
