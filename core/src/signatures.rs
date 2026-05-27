@@ -45,7 +45,8 @@ impl SignatureDb {
             let (hash, name) = if let Some(pos) = line.find(':') {
                 let h = line[..pos].trim().to_lowercase();
                 let n = line[pos + 1..].trim().to_string();
-                (h, if n.is_empty() { h.clone() } else { n })
+                let name_val = if n.is_empty() { h.clone() } else { n };
+                (h, name_val)
             } else {
                 let mut parts = line.splitn(2, |c: char| c.is_whitespace());
                 let h = parts.next().unwrap_or("").trim().to_lowercase();
