@@ -20,7 +20,6 @@ from backend.models import (
     ScanHistoryResponse,
     ScanResult,
     ScanStatus,
-    ThreatLevel,
     WebSocketEvent,
 )
 from backend.services.scanner import active_scans, run_scan
