@@ -241,9 +241,9 @@ fn analyze_pe(data: &[u8]) -> Vec<HeuristicFinding> {
     // ── Imports — real import table via goblin ────────────────────────────────
     let mut import_hits: Vec<String> = Vec::new();
     for import in &pe.imports {
-        let name = import.name;
-        if SUSPICIOUS_IMPORTS.iter().any(|&s| s.eq_ignore_ascii_case(name)) {
-            import_hits.push(name.to_string());
+        let name = import.name.to_string();
+        if SUSPICIOUS_IMPORTS.iter().any(|&s| s.eq_ignore_ascii_case(&name)) {
+            import_hits.push(name);
         }
     }
     if !import_hits.is_empty() {
