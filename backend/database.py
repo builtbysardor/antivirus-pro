@@ -8,7 +8,7 @@ from typing import Any, Dict, List, Optional
 
 import aiosqlite
 
-from backend.models import ScanResult, ScanStatus, ThreatLevel
+from backend.models import ScanResult
 
 logger = logging.getLogger(__name__)
 
