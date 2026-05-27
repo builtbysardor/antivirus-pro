@@ -248,4 +248,5 @@ async def get_stats() -> Dict[str, Any]:
         "scans_today": scans_today,
         "malicious_count": malicious_count,
         "suspicious_count": suspicious_count,
+        "top_threats": top_threats,
     }
