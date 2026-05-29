@@ -1,7 +1,6 @@
 use std::path::{Path, PathBuf};
 use std::time::Instant;
 
-use anyhow::Result;
 use rayon::prelude::*;
 use serde::{Deserialize, Serialize};
 use walkdir::WalkDir;
