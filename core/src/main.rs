@@ -409,13 +409,7 @@ fn build_result_dict(r: &ScanResult) -> Value {
 /// Install a Ctrl-C handler that prints a message and exits cleanly.
 fn ctrlc_handler() {
     // We do a best-effort install; if it fails we just skip it.
-    let _ = std::panic::catch_unwind(|| {
-        unsafe {
-            // Use the libc signal mechanism via std::process on Unix.
-            // A simple approach: spawn a thread that blocks on a park and rely on
-            // the OS to send SIGINT which terminates the process.
-        }
-    });
+    // best-effort; if it fails we just skip it
 
     // Register via the `signal_hook` pattern using std channels.
     // Since we only have `tokio` and `anyhow` in deps we use a simple approach:
