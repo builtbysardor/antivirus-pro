@@ -148,7 +148,7 @@ pub fn detect_file_type(data: &[u8]) -> String {
     }
 
     // UTF-8 / plain text heuristic (all bytes printable or common whitespace)
-    if data.iter().all(|&b| b == b'\r' || b == b'\n' || b == b'\t' || (b >= 0x20 && b < 0x7f)) {
+    if data.iter().all(|&b| b == b'\r' || b == b'\n' || b == b'\t' || ((0x20u8..0x7fu8).contains(&b))) {
         return "Plain Text".to_string();
     }
 
