@@ -25,7 +25,7 @@ jobs:
       - name: cargo audit
         run: |
           cargo install cargo-audit --quiet
-          cargo audit --manifest-path core/Cargo.toml
+          cd core && cargo audit
 
   backend:
     name: Python (lint + security)
