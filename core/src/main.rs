@@ -206,8 +206,8 @@ fn format_level(level: &ThreatLevel) -> &'static str {
 fn print_table(results: &[ScanResult]) {
     // Header
     println!(
-        "{:<60}  {:<9}  {:>8}  {:>6}  {}",
-        "File", "Threat", "Findings", "Hash", "Error"
+        "{:<60}  {:<9}  {:>8}  {:>6}  Error",
+        "File", "Threat", "Findings", "Hash"
     );
     println!("{}", "-".repeat(100));
 
