@@ -176,7 +176,7 @@ pub fn analyze_file(path: &Path, data: &[u8]) -> Vec<HeuristicFinding> {
     }
 
     // Sort by descending severity for easy consumption.
-    findings.sort_by(|a, b| b.severity.cmp(&a.severity));
+    findings.sort_by_key(|f| std::cmp::Reverse(f.severity));
     findings
 }
 
